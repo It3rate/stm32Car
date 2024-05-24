@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define ONBOARD_LED_Pin GPIO_PIN_13
 #define ONBOARD_LED_GPIO_Port GPIOC
+#define NRF_IRQ_Pin GPIO_PIN_2
+#define NRF_IRQ_GPIO_Port GPIOB
 #define NRF_SCK_Pin GPIO_PIN_10
 #define NRF_SCK_GPIO_Port GPIOB
 #define NRF_CE_Pin GPIO_PIN_12
