@@ -207,7 +207,7 @@ int main(void)
 
   	// Wait ~0.5s
   	count++;
-  	Delay_ms(10);
+  	Delay_ms(5);
 
 	// test blink
 	HAL_GPIO_WritePin(ONBOARD_LED_GPIO_Port, ONBOARD_LED_Pin, GPIO_PIN_SET);

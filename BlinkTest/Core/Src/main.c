@@ -149,7 +149,7 @@ int main(void)
 
 	  //writeHexTo(4, 4, count);
 	  count++;
-	  HAL_Delay(10);
+	  HAL_Delay(8);
   }
   /* USER CODE END 3 */
 }
