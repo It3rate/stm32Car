@@ -24,6 +24,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "tm1638.h"
+#include "support.h"
+#include "nrf24.h"
 
 /* USER CODE END Includes */
 
@@ -90,6 +92,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 
   HAL_GPIO_WritePin(SPI1_STB_GPIO_Port, SPI1_STB_Pin, GPIO_PIN_SET);
@@ -99,17 +102,24 @@ int main(void)
   clear();
   //setDataOut();
 	  charTo(0, 'l');
-	  charTo(2, 'e');
-	  charTo(4, 'o');
-	  charTo(6, 'n');
-	  charTo(8, 'e');
-	  charTo(10, 'm');
-	  charTo(12, 'm');
-	  charTo(14, 'a');
+	  charTo(1, 'e');
+	  charTo(2, 'o');
+	  charTo(3, 'n');
+	  charTo(4, 'e');
+	  charTo(5, 'm');
+	  charTo(6, 'm');
+	  charTo(7, 'a');
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  nRF24_RXResult pipe;
+  uint32_t count = 0;
+  uint8_t rxLen = 5;
+  uint8_t rxValues[] = {0,1,2,3,4};
+  nRF24_Init();
+  nRF24_InitRX(rxValues, rxLen);
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -123,7 +133,23 @@ int main(void)
 		  char val = (btns & (1 << i)) > 0 ? 1 : 0;
 		  writeTo(2 * i + 1, val);
 	  }
-	  HAL_Delay(150);
+
+	  uint8_t status = nRF24_GetStatus_RXFIFO();
+      if (status != nRF24_STATUS_RXFIFO_EMPTY) {
+          // Get a payload from the transceiver
+          pipe = nRF24_ReadPayload(rxValues, &rxLen);
+
+          // Clear all pending IRQ flags
+          nRF24_ClearIRQFlags();
+          writeHexTo(6, 2, rxValues[0]);
+          writeHexTo(4, 2, rxValues[1]);
+          writeHexTo(2, 2, rxValues[2]);
+          writeHexTo(0, 2, rxValues[3]);
+      }
+
+	  //writeHexTo(4, 4, count);
+	  count++;
+	  HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }

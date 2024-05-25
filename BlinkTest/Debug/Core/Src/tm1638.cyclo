@@ -3,6 +3,8 @@
 ../Core/Src/tm1638.c:63:6:clear	2
 ../Core/Src/tm1638.c:73:6:writeTo	1
 ../Core/Src/tm1638.c:82:6:charTo	7
-../Core/Src/tm1638.c:98:6:setDataOut	1
-../Core/Src/tm1638.c:110:6:setDataIn	1
-../Core/Src/tm1638.c:122:9:readButtons	2
+../Core/Src/tm1638.c:98:6:hexTo	1
+../Core/Src/tm1638.c:102:6:setDataOut	1
+../Core/Src/tm1638.c:114:6:setDataIn	1
+../Core/Src/tm1638.c:127:6:writeHexTo	2
+../Core/Src/tm1638.c:134:9:readButtons	2

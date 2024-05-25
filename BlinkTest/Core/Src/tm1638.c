@@ -93,6 +93,10 @@ void charTo(char pos, char val){
 	{
 		result = letterMap[10 + (val - 'A')];
 	}
+	writeTo(pos * 2, result);
+}
+void hexTo(char pos, uint8_t val){
+	char result  = letterMap[val & 0x0F];
 	writeTo(pos, result);
 }
 void setDataOut()
@@ -119,6 +123,14 @@ void setDataIn()
   HAL_GPIO_Init(SPI1_MOSI_GPIO_Port, &GPIO_InitStruct);
 }
 
+
+void writeHexTo(uint8_t startPos, uint8_t digits, uint32_t val){
+	while(digits != 0){
+		hexTo(2 * (startPos + digits - 1), val);
+		val = val >> 4;
+		digits--;
+	}
+}
 uint8_t readButtons(){
 
 	uint8_t readMode = 0x42;
