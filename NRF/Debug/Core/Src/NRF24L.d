@@ -1,6 +1,5 @@
 Core/Src/NRF24L.o: ../Core/Src/NRF24L.cpp ../Core/Inc/NRF24L.hpp \
- ../Core/Inc/support.h ../Core/Inc/main.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -25,10 +24,8 @@ Core/Src/NRF24L.o: ../Core/Src/NRF24L.cpp ../Core/Inc/NRF24L.hpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- ../Core/Inc/support.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 ../Core/Inc/NRF24L.hpp:
-../Core/Inc/support.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -56,4 +53,3 @@ Core/Src/NRF24L.o: ../Core/Src/NRF24L.cpp ../Core/Inc/NRF24L.hpp \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
-../Core/Inc/support.h:

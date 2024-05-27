@@ -1,14 +1,46 @@
 #include "NRF24L.hpp"
-#include "support.h"
 
 // Functions to manage the nRF24L01+ transceiver
 
 #define nRF24_WAIT_TIMEOUT         (uint32_t)100;//0x000FFFFF
 
-	NRF24L::NRF24L(){
-	}
-	NRF24L::~NRF24L(){
-	}
+NRF24L::NRF24L(SPI_HandleTypeDef *spi, GPIO_TypeDef* CEPort, uint16_t CEPin, GPIO_TypeDef* CSNPort, uint16_t CSNPin):
+				_spi(spi),
+				_CEPort(CEPort),
+				_CEPin(CEPin),
+				_CSNPort(CSNPort),
+				_CSNPin(CSNPin)
+{}
+
+NRF24L::~NRF24L(){}
+
+
+//static inline void Delay_ms(uint32_t ms) { HAL_Delay(ms); }
+
+void NRF24L::nRF24_CE_L() {
+    HAL_GPIO_WritePin(_CEPort, _CEPin, GPIO_PIN_RESET);
+}
+
+void NRF24L::nRF24_CE_H() {
+    HAL_GPIO_WritePin(_CEPort, _CEPin, GPIO_PIN_SET);
+}
+
+void NRF24L::nRF24_CSN_L() {
+    HAL_GPIO_WritePin(_CSNPort, _CSNPin, GPIO_PIN_RESET);
+}
+
+void NRF24L::nRF24_CSN_H() {
+    HAL_GPIO_WritePin(_CSNPort, _CSNPin, GPIO_PIN_SET);
+}
+
+uint8_t NRF24L::nRF24_LL_RW(uint8_t data) {
+    // Wait until TX buffer is empty
+    uint8_t result;
+    if(HAL_SPI_TransmitReceive(_spi, &data, &result, 1, 2000)!=HAL_OK) {
+        Error_Handler();
+    };
+    return result;
+}
 
 // Function to transmit data packet
 // input:

@@ -2,7 +2,7 @@
 #ifndef NRF24L_HPP_
 #define NRF24L_HPP_
 
-#include "support.h"
+#include "main.h"
 
 class NRF24L {
 
@@ -34,7 +34,7 @@ public:
 		ERROR = (uint8_t)0x03  // Impossible state: RX FIFO cannot be empty and full at the same time
 	} FifoStatus;
 
-	NRF24L();
+	NRF24L(SPI_HandleTypeDef *spi, GPIO_TypeDef* CEPort, uint16_t CEPin, GPIO_TypeDef* CSNPort, uint16_t CSNPin);
 	virtual ~NRF24L();
 
 	void Init(void);
@@ -79,6 +79,18 @@ public:
 
 
 private:
+	SPI_HandleTypeDef *_spi;
+	GPIO_TypeDef *_CEPort;
+	uint16_t _CEPin;
+	GPIO_TypeDef *_CSNPort;
+	uint16_t _CSNPin;
+
+	void nRF24_CE_L();
+	void nRF24_CE_H();
+	void nRF24_CSN_L();
+	void nRF24_CSN_H();
+	uint8_t nRF24_LL_RW(uint8_t data);
+
 	uint8_t ReadReg(uint8_t reg);
 	void WriteReg(uint8_t reg, uint8_t value);
 	void ReadMBReg(uint8_t reg, uint8_t *pBuf, uint8_t count);

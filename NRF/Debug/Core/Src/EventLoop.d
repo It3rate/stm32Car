@@ -26,7 +26,7 @@ Core/Src/EventLoop.o: ../Core/Src/EventLoop.cpp ../Core/Inc/EventLoop.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Core/Inc/spi.h ../Core/Inc/main.h ../Core/Inc/Tm1638.hpp \
- ../Core/Inc/spi.h ../Core/Inc/NRF24L.hpp ../Core/Inc/support.h
+ ../Core/Inc/spi.h ../Core/Inc/NRF24L.hpp
 ../Core/Inc/EventLoop.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -60,4 +60,3 @@ Core/Src/EventLoop.o: ../Core/Src/EventLoop.cpp ../Core/Inc/EventLoop.h \
 ../Core/Inc/Tm1638.hpp:
 ../Core/Inc/spi.h:
 ../Core/Inc/NRF24L.hpp:
-../Core/Inc/support.h:

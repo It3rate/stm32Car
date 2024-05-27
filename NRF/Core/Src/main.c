@@ -24,7 +24,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "EventLoop.h"
-#include "support.h"
 
 /* USER CODE END Includes */
 

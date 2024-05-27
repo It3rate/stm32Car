@@ -7,7 +7,7 @@
 GPIO_PinState led_state = GPIO_PIN_SET;
 Tm1638 tmDevice = Tm1638(&hspi1, TM_STB_GPIO_Port, TM_STB_Pin,
 		TM_MOSI_GPIO_Port, TM_MOSI_Pin);
-NRF24L nrfDevice = NRF24L();
+NRF24L nrfDevice = NRF24L(&hspi2, NRF_CE_GPIO_Port, NRF_CE_Pin, NRF_CSN_GPIO_Port, NRF_CSN_Pin);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == KEY_Pin) {
@@ -15,7 +15,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	}
 }
 
-#define IS_TX
+//#define IS_TX
 
 void EventLoopCpp() {
 	tmDevice.test();
