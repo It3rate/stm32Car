@@ -15,17 +15,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	}
 }
 
-//#define IS_TX
+#define IS_TX
 
 void EventLoopCpp() {
 	tmDevice.test();
 	nrfDevice.Init();
 	nrfDevice.Check();
-	uint32_t i = 0;
 	uint8_t payload_length = 5;
 	uint8_t nRF24_payload[32];
 
 #ifdef IS_TX
+	uint32_t count = 0;
 	NRF24L::TXResult tx_res;
 	nrfDevice.InitTX();
 #else
@@ -42,8 +42,6 @@ void EventLoopCpp() {
 		}
 
 #ifdef IS_TX
-	int16_t status = 0;
-	uint32_t count = 0;
 	nRF24_payload[0] = count & 0xFF;
 	nRF24_payload[1] = (count >> 8) & 0xFF;
 	nRF24_payload[2] = (count >> 16) & 0xFF;
@@ -53,18 +51,15 @@ void EventLoopCpp() {
 	tx_res = nrfDevice.TransmitPacket(nRF24_payload, payload_length);
 	switch (tx_res) {
 		case NRF24L::TX_SUCCESS:
-			status = 0;
 			break;
 		case NRF24L::TX_TIMEOUT:
-			status = 1;
 			break;
 		case NRF24L::TX_MAXRT:
-			status = 2;
 			break;
 		default:
-			status = 99;
 			break;
 	}
+	count++;
 #else // RX
 		uint8_t status = nrfDevice.GetStatus_RXFIFO();
 		if (status != NRF24L::FifoStatus::EMPTY) {
