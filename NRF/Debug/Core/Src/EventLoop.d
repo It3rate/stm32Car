@@ -1,6 +1,5 @@
-Core/Src/nrf24.o: ../Core/Src/nrf24.c ../Core/Inc/nrf24.h \
- ../Core/Inc/support.h ../Core/Inc/main.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+Core/Src/EventLoop.o: ../Core/Src/EventLoop.cpp ../Core/Inc/EventLoop.h \
+ ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -25,9 +24,10 @@ Core/Src/nrf24.o: ../Core/Src/nrf24.c ../Core/Inc/nrf24.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
-../Core/Inc/nrf24.h:
-../Core/Inc/support.h:
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ ../Core/Inc/spi.h ../Core/Inc/main.h ../Core/Inc/Tm1638.hpp \
+ ../Core/Inc/spi.h ../Core/Inc/NRF24L.hpp ../Core/Inc/support.h
+../Core/Inc/EventLoop.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -55,3 +55,9 @@ Core/Src/nrf24.o: ../Core/Src/nrf24.c ../Core/Inc/nrf24.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
+../Core/Inc/spi.h:
+../Core/Inc/main.h:
+../Core/Inc/Tm1638.hpp:
+../Core/Inc/spi.h:
+../Core/Inc/NRF24L.hpp:
+../Core/Inc/support.h:

@@ -17,19 +17,6 @@ C_SRCS += \
 ../Core/Src/system_stm32f4xx.c \
 ../Core/Src/tm1638.c 
 
-OBJS += \
-./Core/Src/gpio.o \
-./Core/Src/main.o \
-./Core/Src/nrf24.o \
-./Core/Src/spi.o \
-./Core/Src/stm32f4xx_hal_msp.o \
-./Core/Src/stm32f4xx_hal_timebase_tim.o \
-./Core/Src/stm32f4xx_it.o \
-./Core/Src/syscalls.o \
-./Core/Src/sysmem.o \
-./Core/Src/system_stm32f4xx.o \
-./Core/Src/tm1638.o 
-
 C_DEPS += \
 ./Core/Src/gpio.d \
 ./Core/Src/main.d \
@@ -42,6 +29,19 @@ C_DEPS += \
 ./Core/Src/sysmem.d \
 ./Core/Src/system_stm32f4xx.d \
 ./Core/Src/tm1638.d 
+
+OBJS += \
+./Core/Src/gpio.o \
+./Core/Src/main.o \
+./Core/Src/nrf24.o \
+./Core/Src/spi.o \
+./Core/Src/stm32f4xx_hal_msp.o \
+./Core/Src/stm32f4xx_hal_timebase_tim.o \
+./Core/Src/stm32f4xx_it.o \
+./Core/Src/syscalls.o \
+./Core/Src/sysmem.o \
+./Core/Src/system_stm32f4xx.o \
+./Core/Src/tm1638.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes

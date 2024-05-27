@@ -1,0 +1,50 @@
+../Core/Inc/support.h:15:20:void nRF24_CE_L()	1
+../Core/Inc/support.h:19:20:void nRF24_CE_H()	1
+../Core/Inc/support.h:23:20:void nRF24_CSN_L()	1
+../Core/Inc/support.h:27:20:void nRF24_CSN_H()	1
+../Core/Inc/support.h:32:23:uint8_t nRF24_LL_RW(uint8_t)	2
+../Core/Src/NRF24L.cpp:8:2:NRF24L::NRF24L()	1
+../Core/Src/NRF24L.cpp:10:2:NRF24L::~NRF24L()	1
+../Core/Src/NRF24L.cpp:10:2:virtual NRF24L::~NRF24L()	1
+../Core/Src/NRF24L.cpp:18:18:NRF24L::TXResult NRF24L::TransmitPacket(uint8_t*, uint8_t)	6
+../Core/Src/NRF24L.cpp:64:9:uint8_t NRF24L::ReadReg(uint8_t)	1
+../Core/Src/NRF24L.cpp:79:6:void NRF24L::WriteReg(uint8_t, uint8_t)	6
+../Core/Src/NRF24L.cpp:102:6:void NRF24L::ReadMBReg(uint8_t, uint8_t*, uint8_t)	2
+../Core/Src/NRF24L.cpp:116:6:void NRF24L::WriteMBReg(uint8_t, uint8_t*, uint8_t)	2
+../Core/Src/NRF24L.cpp:127:6:void NRF24L::Init()	1
+../Core/Src/NRF24L.cpp:161:9:uint8_t NRF24L::Check()	3
+../Core/Src/NRF24L.cpp:182:6:void NRF24L::SetPowerMode(uint8_t)	2
+../Core/Src/NRF24L.cpp:201:6:void NRF24L::SetOperationalMode(uint8_t)	1
+../Core/Src/NRF24L.cpp:214:6:void NRF24L::SetDynamicPayloadLength(uint8_t)	2
+../Core/Src/NRF24L.cpp:229:6:void NRF24L::SetPayloadWithAck(uint8_t)	2
+../Core/Src/NRF24L.cpp:244:6:void NRF24L::SetCRCScheme(uint8_t)	1
+../Core/Src/NRF24L.cpp:259:6:void NRF24L::SetRFChannel(uint8_t)	1
+../Core/Src/NRF24L.cpp:268:6:void NRF24L::SetAutoRetr(uint8_t, uint8_t)	1
+../Core/Src/NRF24L.cpp:278:6:void NRF24L::SetAddrWidth(uint8_t)	1
+../Core/Src/NRF24L.cpp:292:6:void NRF24L::SetAddr(uint8_t, const uint8_t*)	7
+../Core/Src/NRF24L.cpp:327:6:void NRF24L::SetTXPower(uint8_t)	1
+../Core/Src/NRF24L.cpp:340:6:void NRF24L::SetDataRate(uint8_t)	1
+../Core/Src/NRF24L.cpp:355:6:void NRF24L::SetRXPipe(uint8_t, uint8_t, uint8_t)	2
+../Core/Src/NRF24L.cpp:378:6:void NRF24L::ClosePipe(uint8_t)	1
+../Core/Src/NRF24L.cpp:390:6:void NRF24L::EnableAA(uint8_t)	1
+../Core/Src/NRF24L.cpp:402:6:void NRF24L::DisableAA(uint8_t)	2
+../Core/Src/NRF24L.cpp:418:9:uint8_t NRF24L::GetStatus()	1
+../Core/Src/NRF24L.cpp:424:9:uint8_t NRF24L::GetIRQFlags()	1
+../Core/Src/NRF24L.cpp:430:9:uint8_t NRF24L::GetStatus_RXFIFO()	1
+../Core/Src/NRF24L.cpp:437:9:uint8_t NRF24L::GetStatus_TXFIFO()	1
+../Core/Src/NRF24L.cpp:443:9:uint8_t NRF24L::GetRXSource()	1
+../Core/Src/NRF24L.cpp:451:9:uint8_t NRF24L::GetRetransmitCounters()	1
+../Core/Src/NRF24L.cpp:456:6:void NRF24L::ResetPLOS()	1
+../Core/Src/NRF24L.cpp:465:6:void NRF24L::FlushTX()	1
+../Core/Src/NRF24L.cpp:470:6:void NRF24L::FlushRX()	1
+../Core/Src/NRF24L.cpp:475:6:void NRF24L::ClearIRQFlags()	1
+../Core/Src/NRF24L.cpp:488:6:void NRF24L::WritePayload(uint8_t*, uint8_t)	1
+../Core/Src/NRF24L.cpp:492:9:uint8_t NRF24L::GetRxDplPayloadWidth()	1
+../Core/Src/NRF24L.cpp:504:18:NRF24L::RXResult NRF24L::ReadPayloadGeneric(uint8_t*, uint8_t*, uint8_t)	5
+../Core/Src/NRF24L.cpp:545:18:NRF24L::RXResult NRF24L::ReadPayload(uint8_t*, uint8_t*)	1
+../Core/Src/NRF24L.cpp:549:18:NRF24L::RXResult NRF24L::ReadPayloadDpl(uint8_t*, uint8_t*)	1
+../Core/Src/NRF24L.cpp:553:9:uint8_t NRF24L::GetFeatures()	1
+../Core/Src/NRF24L.cpp:556:6:void NRF24L::ActivateFeatures()	1
+../Core/Src/NRF24L.cpp:562:6:void NRF24L::WriteAckPayload(RXResult, char*, uint8_t)	2
+../Core/Src/NRF24L.cpp:572:6:void NRF24L::InitTX()	1
+../Core/Src/NRF24L.cpp:596:6:void NRF24L::InitRX(uint8_t*, uint8_t)	1
