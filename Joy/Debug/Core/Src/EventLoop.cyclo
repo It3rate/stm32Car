@@ -1,0 +1,3 @@
+../Core/Src/EventLoop.cpp:11:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
+../Core/Src/EventLoop.cpp:15:6:void EventLoopCpp()	1
+../Core/Src/EventLoop.cpp:26:6:void EventLoopC()	1
