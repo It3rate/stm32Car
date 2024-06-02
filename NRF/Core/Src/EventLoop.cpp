@@ -3,18 +3,21 @@
 #include "spi.h"
 #include "adc.h"
 #include "usart.h"
-#include "Tm1638.hpp"
-#include "NRF24L.hpp"/* Includes ------------------------------------------------------------------*/
 #include "usbd_cdc_if.h"
+#include "Tm1638.hpp"
+#include "NRF24L.hpp"
+#include "Joy.hpp"
 
 GPIO_PinState led_state = GPIO_PIN_SET;
 
 //uint8_t _uart_tx[] = {0xFD, 0xFC, 0xFB, 0xFA, 0x08, 0x00, 0x12, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00, 0x04, 0x03, 0x02, 0x01};
 uint8_t _uart_tx[] = {0xFD, 0xFC, 0xFB, 0xFA, 0x02, 0x00, 0x00, 0x00, 0x04, 0x03, 0x02, 0x01};
 
-uint8_t RX_BUF[64]={0};  //缓存数组
-uint8_t RX_count=0;      //计数位
-uint8_t RX_temp;         //缓存字符
+uint8_t RX_BUF[64]={0};
+uint8_t RX_count=0;
+uint8_t RX_temp;
+
+Joy *myJoy = nullptr;
 
 Tm1638 tmDevice = Tm1638(&hspi1, TM_STB_GPIO_Port, TM_STB_Pin, TM_MOSI_GPIO_Port, TM_MOSI_Pin);
 
@@ -33,11 +36,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
   //HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == KEY_Pin) {
-		led_state = HAL_GPIO_ReadPin(KEY_GPIO_Port, KEY_Pin);
-	}
-}
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+//	if (GPIO_Pin == KEY_Pin) {
+//		led_state = HAL_GPIO_ReadPin(KEY_GPIO_Port, KEY_Pin);
+//	}
+//}
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	CDC_Transmit_FS(RX_BUF, sizeof(RX_BUF));
 }
@@ -66,7 +69,14 @@ void RD_03_Write_cmd(uint8_t parameter,uint8_t data)
 
 //#define IS_TX
 
+void onButtonChangedHandler(Joy* instance)
+{
+	//CDC_Transmit_FS(buffer, sizeof(buffer));
+}
 void EventLoopCpp() {
+	myJoy = new Joy(&hadc1, &htim2, JOY_BTN_GPIO_Port, JOY_BTN_Pin);
+	myJoy->attachOnButtonChanged(onButtonChangedHandler);
+
 	tmDevice.test();
 	nrfDevice.Init();
 	nrfDevice.Check();
