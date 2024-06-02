@@ -63,6 +63,7 @@ void Error_Handler(void);
 #define JOY_Y_GPIO_Port GPIOA
 #define JOY_BTN_Pin GPIO_PIN_2
 #define JOY_BTN_GPIO_Port GPIOA
+#define JOY_BTN_EXTI_IRQn EXTI2_IRQn
 
 /* USER CODE BEGIN Private defines */
 
