@@ -40,7 +40,8 @@ Core/Src/EventLoop.o: ../Core/Src/EventLoop.cpp ../Core/Inc/EventLoop.h \
  ../USB_DEVICE/Target/usbd_conf.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
+ ../Core/Inc/Joy.hpp ../Core/Inc/adc.h ../Core/Inc/tim.h
 ../Core/Inc/EventLoop.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -87,3 +88,6 @@ Core/Src/EventLoop.o: ../Core/Src/EventLoop.cpp ../Core/Inc/EventLoop.h \
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../Core/Inc/Joy.hpp:
+../Core/Inc/adc.h:
+../Core/Inc/tim.h:
