@@ -18,9 +18,13 @@ public:
 	const uint16_t getY();
 	const uint16_t getButton();
 	const uint16_t* getXYButton();
-	void OnButtonChange(uint16_t GPIO_Pin);
+	static void OnButtonChange(uint16_t gpioPin);
 
 private:
+	static Joy *_instances[16];
+	static uint8_t _joyCounter;
+	uint8_t _joyIndex;
+
     ButtonChangedHandler onButtonChanged;
 	ADC_HandleTypeDef *_hadc;
 	TIM_HandleTypeDef *_htim;

@@ -7,6 +7,7 @@
 #include "Tm1638.hpp"
 #include "NRF24L.hpp"
 #include "Joy.hpp"
+#include "Interrupts.hpp"
 
 GPIO_PinState led_state = GPIO_PIN_SET;
 
@@ -42,6 +43,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
 
 extern void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+	Interrupts::Invoke_GPIO_EXTI(GPIO_Pin);
 #ifndef IS_TX
     if (GPIO_Pin == GPIO_PIN_2) {
 		//uint8_t status = nrfDevice.GetStatus_RXFIFO();
