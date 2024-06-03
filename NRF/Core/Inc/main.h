@@ -72,6 +72,9 @@ void Error_Handler(void);
 #define TM_STB_GPIO_Port GPIOA
 #define TM_MOSI_Pin GPIO_PIN_7
 #define TM_MOSI_GPIO_Port GPIOA
+#define NRF_IRQ_Pin GPIO_PIN_2
+#define NRF_IRQ_GPIO_Port GPIOB
+#define NRF_IRQ_EXTI_IRQn EXTI2_IRQn
 #define NRF_SCK_Pin GPIO_PIN_10
 #define NRF_SCK_GPIO_Port GPIOB
 #define NRF_CE_Pin GPIO_PIN_12

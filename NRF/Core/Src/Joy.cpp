@@ -49,9 +49,9 @@ void Joy::OnButtonChange(uint16_t GPIO_Pin)
     }
 }
 
-extern void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-    if (_instance != nullptr) {
-        _instance->OnButtonChange(GPIO_Pin);
-    }
-}
+//extern void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+//{
+//    if (_instance != nullptr) {
+//        _instance->OnButtonChange(GPIO_Pin);
+//    }
+//}
