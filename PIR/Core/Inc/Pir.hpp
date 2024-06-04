@@ -11,10 +11,11 @@ public:
 	virtual ~Pir();
 
 	typedef void (*PirChangedHandler)(Pir*);
-    void attachOnPirChanged(PirChangedHandler handler);
-
-	void OnPirChange(uint16_t GPIO_Pin);
 	bool GetState();
+    void attachOnPirChanged(PirChangedHandler handler);
+    void PirChanged();
+
+	static void OnPirChange(uint16_t GPIO_Pin);
 
 private:
 	PirChangedHandler onPirChanged;

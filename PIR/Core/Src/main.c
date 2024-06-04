@@ -20,7 +20,6 @@
 #include "main.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include "EventLoop.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
