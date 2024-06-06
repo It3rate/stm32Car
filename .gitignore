@@ -15,6 +15,9 @@ local.properties
 .recommenders
 
 **/Debug/
+!.project
+!.cproject
+
 
 # External tool builders
 .externalToolBuilders/
